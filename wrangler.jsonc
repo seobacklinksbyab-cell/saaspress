@@ -1,0 +1,7 @@
+{
+  "name": "withered-smoke-7a8e",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+  "ai": { "binding": "AI" }
+}
