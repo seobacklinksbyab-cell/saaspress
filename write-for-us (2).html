@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write for Us | Guest Posts on SaaSPress</title>
+<meta name="description" content="Publish a guest post on SaaSPress. Read our guidelines and submit your article about AI tools for freelancers, SaaS comparisons, or free software and tutorials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-head{background:var(--navy);color:#CBD5E1;padding:56px 0 48px}
+.page-head h1{color:#fff;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:.3em}
+.page-head p{margin:0 0 1.2em;font-size:1.1rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.two ul{padding-left:20px;margin:0 0 1em}
+.two li{margin-bottom:6px}
+.no li::marker{color:#DC2626}
+.yes li::marker{color:#16A34A}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:760px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px}
+.plan.best{border:2px solid var(--blue)}
+.plan .price{color:var(--navy);font-size:2.2rem;margin:6px 0 10px}
+.plan ul{list-style:none;padding:0;margin:0 0 1.2em}
+.plan li{padding:5px 0 5px 24px;position:relative}
+.plan li::before{content:"\2713";position:absolute;left:0;color:var(--blue);font-weight:700}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;max-width:720px}
+.steps li{counter-increment:s;padding:0 0 22px 52px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;color:var(--navy)}
+form.submit{max-width:680px;display:grid;gap:16px}
+form.submit label{font-weight:600;color:var(--navy);display:block;margin-bottom:4px}
+form.submit input,form.submit select,form.submit textarea{width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:8px;font:inherit;background:#fff}
+form.submit small{color:var(--muted)}
+.check{display:flex;gap:10px;align-items:flex-start}
+.check input{width:auto;margin-top:6px}
+.check label{font-weight:400;margin:0}
+.menu a[aria-current="page"]{color:var(--blue)}
+@media(max-width:900px){.two,.plans{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">SaaS<span>Press</span></a>
+    <button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="write-for-us.html" class="btn btn-orange" aria-current="page">Write for Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <h1>Write for SaaSPress</h1>
+    <p>Reach readers who are choosing AI tools and software for their work.</p>
+    <a href="#submit" class="btn btn-orange">Submit your article</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What we publish</h2>
+    <p>We accept articles about AI tools for freelancers, SaaS comparisons, and free software with practical tutorials. Every article must be useful to a reader who wants to solve a real problem.</p>
+    <div class="two" style="margin-top:28px">
+      <div class="yes">
+        <h3>We accept</h3>
+        <ul>
+          <li>Original articles of 1,000 words or more</li>
+          <li>Clear headings, short paragraphs, real examples</li>
+          <li>Topics that fit our three topics above</li>
+          <li>1 or 2 relevant links to trusted sources</li>
+          <li>A short author bio (up to 50 words)</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>We do not accept</h3>
+        <ul>
+          <li>Copied, spun, or already published content</li>
+          <li>Unedited AI text with no real insight</li>
+          <li>Casino, adult, loans, or other restricted topics</li>
+          <li>Articles that exist only to place a link</li>
+          <li>More than 2 outbound links</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:12px"><b>Link policy:</b> paid guest posts are labeled as sponsored, and links in them use the <code>rel="sponsored"</code> attribute, as Google requires. We may edit articles for clarity and reject any submission that does not meet these guidelines.</p>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="wrap">
+    <h2>Pricing and availability</h2>
+    <p style="max-width:640px">Rates depend on whether you write the article or we do. Send your pitch with the form below and we will reply with the details and our current publishing schedule.</p>
+    <a href="#submit" class="btn btn-blue">Send your pitch</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><b>Send your pitch or article</b>Fill in the form below with your title and a link to your draft.</li>
+      <li><b>We review it within 48 hours</b>We reply by email with approval or the changes we need.</li>
+      <li><b>Agree on the details</b>After approval, we email you the price and payment options.</li>
+      <li><b>We publish and send you the link</b>Your article goes live with your author box.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section soft" id="submit">
+  <div class="wrap">
+    <h2>Submit your article</h2>
+    <p>Fill in the form and we will reply within 48 hours.</p>
+    <form class="submit" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
+      <div><label for="name">Your name</label><input id="name" name="name" required></div>
+      <div><label for="email">Email address</label><input id="email" name="email" type="email" required></div>
+      <div><label for="site">Your website</label><input id="site" name="website" type="url" placeholder="https://"></div>
+      <div><label for="plan">Which option?</label>
+        <select id="plan" name="plan"><option>You write it</option><option>We write it</option></select></div>
+      <div><label for="title">Article title or topic</label><input id="title" name="title" required></div>
+      <div><label for="cat">Category</label>
+        <select id="cat" name="category"><option>AI tools for freelancers</option><option>SaaS comparisons</option><option>Free software and tutorials</option></select></div>
+      <div><label for="doc">Link to your draft</label><input id="doc" name="draft_link" type="url" placeholder="Google Docs link (set to anyone can view)"><small>Leave empty if you chose "We write it".</small></div>
+      <div><label for="bio">Short author bio</label><textarea id="bio" name="bio" rows="3"></textarea></div>
+      <div class="check"><input type="checkbox" id="ok" name="agree" required><label for="ok">My article is original and I accept the guidelines above.</label></div>
+      <div><button type="submit" class="btn btn-blue">Send submission</button></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="index.html" class="logo">SaaS<span>Press</span></a>
+        <p style="margin-top:12px">SaaS reviews, tech guides, and business tips for people who build and run online businesses.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="write-for-us.html">Write for Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var t = document.getElementById('toggle'), m = document.getElementById('menu');
+t.addEventListener('click', function () {
+  var o = m.classList.toggle('open');
+  t.setAttribute('aria-expanded', o);
+});
+</script>
+</body>
+</html>

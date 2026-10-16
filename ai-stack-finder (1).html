@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Stack Finder for Freelancers | Free AI Tools Matched to Your Work</title>
+<meta name="description" content="Pick your freelance work and get a short list of free AI tools that fit it, with each free plan's limits and a link to the official site. Made for freelancers in the US, UK, Canada and Australia.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AI Stack Finder for Freelancers","applicationCategory":"BusinessApplication","operatingSystem":"Any","publisher":{"@type":"Organization","name":"SaaSPress"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-head{background:var(--navy);color:#CBD5E1;padding:56px 0 44px}
+.page-head h1{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem);max-width:22ch;margin-bottom:.4em}
+.page-head p{margin:0;font-size:1.1rem;max-width:60ch}
+.finder{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:40px;align-items:start}
+.panel{border:1px solid var(--line);border-radius:12px;padding:24px;background:#fff}
+.panel h2{font-size:1.15rem;margin:0 0 .6em}
+.panel fieldset{border:0;margin:0 0 1.4em;padding:0}
+.panel legend{font-weight:600;color:var(--navy);margin-bottom:8px}
+.panel select{width:100%;padding:12px;border:1px solid #CBD5E1;border-radius:8px;font:inherit;background:#fff}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:6px 0}
+.opt input{margin-top:5px}
+.opt label{cursor:pointer}
+.res h2{font-size:1.5rem;margin:0 0 .4em}
+.res h3{font-size:1.15rem;margin:1.5em 0 .5em;color:var(--navy)}
+.card{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px;background:#fff}
+.card h4{margin:0 0 4px;font-size:1.1rem;color:var(--navy)}
+.card p{margin:0 0 6px;font-size:1rem}
+.card .lim{color:var(--muted);font-size:.95rem}
+.note{border-left:4px solid var(--blue);background:#F1F5F9;padding:14px 18px;margin:1.4em 0;border-radius:0 8px 8px 0}
+.warn{border-left-color:#D97706;background:#FEF3C7}
+.res ol{margin:0 0 1em 1.3em}
+.empty{color:var(--muted)}
+.menu a[aria-current="page"]{color:var(--blue)}
+@media(max-width:900px){.finder{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">SaaS<span>Press</span></a>
+    <button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="write-for-us.html" class="btn btn-orange">Write for Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <h1>AI Stack Finder for Freelancers</h1>
+    <p>Tell us what you do and what slows you down. We match you with a short list of free AI tools, show what each free plan limits, and link to the official site.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap finder">
+    <div class="panel">
+      <h2>Your work</h2>
+      <fieldset>
+        <legend><label for="prof">What do you do?</label></legend>
+        <select id="prof">
+          <option value="writer">Content writer</option>
+          <option value="designer">Graphic designer</option>
+          <option value="seo">SEO specialist</option>
+          <option value="va">Virtual assistant</option>
+          <option value="marketer">Digital marketer</option>
+          <option value="dev">Web developer</option>
+        </select>
+      </fieldset>
+      <fieldset id="tasks">
+        <legend>What takes up your time?</legend>
+        <div class="opt"><input type="checkbox" id="t-write" value="write"><label for="t-write">Writing and editing</label></div>
+        <div class="opt"><input type="checkbox" id="t-research" value="research"><label for="t-research">Research</label></div>
+        <div class="opt"><input type="checkbox" id="t-design" value="design"><label for="t-design">Design and visuals</label></div>
+        <div class="opt"><input type="checkbox" id="t-notes" value="notes"><label for="t-notes">Notes and client records</label></div>
+        <div class="opt"><input type="checkbox" id="t-calls" value="calls"><label for="t-calls">Meetings and calls</label></div>
+        <div class="opt"><input type="checkbox" id="t-auto" value="auto"><label for="t-auto">Repeat tasks between apps</label></div>
+      </fieldset>
+      <fieldset>
+        <legend>Do you handle confidential client information?</legend>
+        <div class="opt"><input type="radio" name="conf" id="c-often" value="often" checked><label for="c-often">Often</label></div>
+        <div class="opt"><input type="radio" name="conf" id="c-some" value="some"><label for="c-some">Sometimes</label></div>
+        <div class="opt"><input type="radio" name="conf" id="c-rare" value="rare"><label for="c-rare">Rarely</label></div>
+      </fieldset>
+    </div>
+
+    <div class="res" id="out" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="note"><strong>How this works:</strong> every match comes from the free-plan details we checked in October 2026 against each company's own pages where we could find them. SaaSPress has not run hands-on tests of these tools. Free plans change, so confirm the current limits on the official site before you rely on them. We show no prices on purpose.</div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="index.html" class="logo">SaaS<span>Press</span></a>
+        <p style="margin-top:12px">SaaS reviews, tech guides, and business tips for people who build and run online businesses.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="ai-stack-finder.html">AI Stack Finder</a></li>
+          <li><a href="write-for-us.html">Write for Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var t = document.getElementById('toggle'), m = document.getElementById('menu');
+t.addEventListener('click', function () {
+  var o = m.classList.toggle('open');
+  t.setAttribute('aria-expanded', o);
+});
+
+var TOOLS = {
+  chatgpt:{n:'ChatGPT',u:'https://chatgpt.com',lim:'Free plan with separate limits for each feature. Ads may appear in some countries.'},
+  claude:{n:'Claude',u:'https://claude.ai',lim:'Free plan with a session-based limit that resets every five hours and varies with demand.'},
+  gemini:{n:'Gemini',u:'https://gemini.google.com',lim:'Free in the Gemini app. Usage limits reset and can change.'},
+  grammarly:{n:'Grammarly',u:'https://www.grammarly.com',lim:'Free plan includes 100 AI prompts per month.'},
+  perplexity:{n:'Perplexity',u:'https://www.perplexity.ai',lim:'Free plan with cited answers. Advanced Pro searches are capped per day.'},
+  canva:{n:'Canva',u:'https://www.canva.com',lim:'Free plan. AI tools use a limited shared allowance.'},
+  notion:{n:'Notion',u:'https://www.notion.com',lim:'Free plan. Notion AI is a limited trial on Free.'},
+  otter:{n:'Otter.ai',u:'https://otter.ai',lim:'Free plan with a monthly minute cap and a per-meeting time cap.'},
+  zapier:{n:'Zapier',u:'https://zapier.com',lim:'Free plan with 100 tasks per month and two-step Zaps only.'}
+};
+var TASKS = {
+  write:{label:'Writing and editing',picks:[['chatgpt','A general assistant for first drafts and outlines. ChatGPT, Claude and Gemini all fit, so pick one and try it on a real job.'],['grammarly','A final proofread before you send work to a client.']]},
+  research:{label:'Research',picks:[['perplexity','Answers with sources you can open and check.'],['gemini','Quick summaries, especially if you already work in Google apps.']]},
+  design:{label:'Design and visuals',picks:[['canva','Templates for social posts, presentations and simple graphics.']]},
+  notes:{label:'Notes and client records',picks:[['notion','One page per client for briefs, deadlines and meeting notes.']]},
+  calls:{label:'Meetings and calls',picks:[['otter','Live transcripts so you can listen instead of typing notes.']]},
+  auto:{label:'Repeat tasks between apps',picks:[['zapier','Connect two apps so a small job runs without you.']]}
+};
+var PROF = {
+  writer:['write','research'],designer:['design','notes'],seo:['research','write','auto'],
+  va:['calls','notes','auto'],marketer:['design','write'],dev:['write','notes']
+};
+var TIP = {
+  writer:'Check every fact an AI gives you against its source before you publish.',
+  designer:'Use AI for drafts and variations, then make the final design decisions yourself.',
+  seo:'Treat AI outlines as a starting point and verify any data before it goes in a report.',
+  va:'Tell clients and meeting participants when you use AI to record or summarise.',
+  marketer:'Keep your client\u2019s voice in the final copy. AI drafts are rarely on-brand by default.',
+  dev:'Test any code an AI writes before you use it, and never paste secrets or keys into a chat.'
+};
+var out = document.getElementById('out');
+var prof = document.getElementById('prof');
+var boxes = document.querySelectorAll('#tasks input');
+var confs = document.querySelectorAll('input[name="conf"]');
+
+function setDefaults() {
+  var d = PROF[prof.value];
+  boxes.forEach(function (b) { b.checked = d.indexOf(b.value) > -1; });
+}
+function card(id, why) {
+  var x = TOOLS[id];
+  return '<div class="card"><h4>' + x.n + '</h4><p>' + why + '</p><p class="lim">' + x.lim +
+    '</p><p><a href="' + x.u + '" rel="noopener" target="_blank">Visit the official site</a></p></div>';
+}
+function render() {
+  var sel = [], conf = 'often';
+  boxes.forEach(function (b) { if (b.checked) sel.push(b.value); });
+  confs.forEach(function (c) { if (c.checked) conf = c.value; });
+  if (!sel.length) { out.innerHTML = '<p class="empty">Choose at least one task to see your matches.</p>'; return; }
+  var h = '<h2>Your matches</h2>', first = [];
+  sel.forEach(function (k) {
+    h += '<h3>' + TASKS[k].label + '</h3>';
+    TASKS[k].picks.forEach(function (p) { h += card(p[0], p[1]); });
+    first.push(TASKS[k].picks[0][0]);
+  });
+  var uniq = first.filter(function (v, i) { return first.indexOf(v) === i; }).slice(0, 3);
+  h += '<h3>Start small</h3><p>Do not sign up for everything. Try these for one week on real client work, then keep what you actually opened:</p><ol>';
+  uniq.forEach(function (id) { h += '<li>' + TOOLS[id].n + '</li>'; });
+  h += '</ol>';
+  h += '<div class="note"><strong>Tip for your work:</strong> ' + TIP[prof.value] + '</div>';
+  if (conf === 'often') {
+    h += '<div class="note warn"><strong>You handle confidential information often.</strong> Do not paste client material into a free AI tool unless your client agrees and the tool\u2019s terms and data settings allow it. Read each tool\u2019s data controls first.</div>';
+  } else if (conf === 'some') {
+    h += '<div class="note warn"><strong>Check before you paste.</strong> For any client material, read the tool\u2019s data settings first and remove names and private details.</div>';
+  }
+  if (sel.indexOf('calls') > -1) {
+    h += '<p>If you record calls, tell everyone on the call first.</p>';
+  }
+  out.innerHTML = h;
+}
+prof.addEventListener('change', function () { setDefaults(); render(); });
+boxes.forEach(function (b) { b.addEventListener('change', render); });
+confs.forEach(function (c) { c.addEventListener('change', render); });
+setDefaults(); render();
+</script>
+</body>
+</html>

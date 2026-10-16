@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog | SaaSPress</title>
+<meta name="description" content="Guides on AI tools for freelancers, SaaS software comparisons, and free software with practical tutorials from SaaSPress.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-head{background:var(--navy);color:#CBD5E1;padding:56px 0 44px}
+.page-head h1{color:#fff;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:.3em}
+.page-head p{margin:0;font-size:1.1rem}
+.tools{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:28px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{padding:8px 16px;border:1px solid var(--line);background:#fff;border-radius:999px;font:inherit;font-size:.92rem;color:var(--navy);cursor:pointer}
+.filters button:hover{border-color:var(--blue)}
+.filters button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.search{padding:10px 14px;border:1px solid #CBD5E1;border-radius:8px;font:inherit;min-width:240px}
+.posts article{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}
+.posts .side{font-size:.9rem;color:var(--muted)}
+.posts .side .tag{display:block;margin-bottom:4px}
+.posts h2{font-size:1.4rem;margin-bottom:.3em}
+.posts h2 a{color:var(--navy)}
+.posts h2 a:hover{color:var(--blue);text-decoration:none}
+.posts p{margin-bottom:.5em}
+.more{text-align:center;margin-top:36px}
+.empty{padding:40px 0;color:var(--muted);display:none}
+.menu a[aria-current="page"]{color:var(--blue)}
+@media(max-width:900px){.posts article{grid-template-columns:1fr;gap:6px}.search{width:100%}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">SaaS<span>Press</span></a>
+    <button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="write-for-us.html" class="btn btn-orange">Write for Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <h1>Blog</h1>
+    <p>AI tools for freelancers, SaaS comparisons, and free software tutorials.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="posts" id="posts">
+      <article>
+        <div class="side"><span class="tag">Topic 1</span>In progress</div>
+        <div><h2>AI tools for freelancers</h2>
+        <p>Practical guides to AI tools that help freelancers write, plan, manage clients and save time.</p>
+        <p><a href="best-free-ai-tools-for-freelancers.html">Best Free AI Tools for Freelancers in 2026: 9 Tools Worth Trying</a></p></div>
+      </article>
+      <article>
+        <div class="side"><span class="tag">Topic 2</span>In progress</div>
+        <div><h2>SaaS comparisons</h2>
+        <p>Side-by-side comparisons of business software, starting with project management tools.</p>
+        <p><a href="post-choose-project-management-tool.html">How to choose a project management tool: 7 questions to ask first</a></p></div>
+      </article>
+      <article>
+        <div class="side"><span class="tag">Topic 3</span>In progress</div>
+        <div><h2>Free software and practical tutorials</h2>
+        <p>Free tools and step-by-step tutorials for getting real tasks done. Practical guides for getting real tasks done.</p>
+        <p><a href="how-to-check-ai-tool-free-plan-limits.html">How to Check an AI Tool’s Free Plan Limits Before You Rely on It</a></p></div>
+      </article>
+    </div>
+    <p style="margin-top:28px"><a href="ai-stack-finder.html">Try the AI Stack Finder</a> to match free AI tools to your work, or use the <a href="ai-studio.html">AI Studio</a> for blog writing and research help.</p>
+    <p>Know one of these topics well? <a href="write-for-us.html">Read our guest post guidelines</a>.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="index.html" class="logo">SaaS<span>Press</span></a>
+        <p style="margin-top:12px">SaaS reviews, tech guides, and business tips for people who build and run online businesses.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="write-for-us.html">Write for Us</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var t = document.getElementById('toggle'), m = document.getElementById('menu');
+t.addEventListener('click', function () {
+  var o = m.classList.toggle('open');
+  t.setAttribute('aria-expanded', o);
+});
+
+</script>
+</body>
+</html>
