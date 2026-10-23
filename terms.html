@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use | SaaSPress</title>
+<meta name="description" content="The rules for using SaaSPress and submitting guest posts.">
+<link rel="canonical" href="https://www.yourdomain.com/terms.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-head{background:var(--navy);color:#CBD5E1;padding:56px 0 44px}
+.page-head h1{color:#fff;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:.3em}
+.page-head p{margin:0;font-size:1.1rem}
+.doc h2{font-size:1.4rem;margin-top:1.6em}
+.doc ul{padding-left:20px}
+.doc li{margin-bottom:6px}
+.doc{max-width:760px}
+form.submit{max-width:640px;display:grid;gap:16px}
+form.submit label{font-weight:600;color:var(--navy);display:block;margin-bottom:4px}
+form.submit input,form.submit textarea{width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:8px;font:inherit}
+.menu a[aria-current="page"]{color:var(--blue)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">SaaS<span>Press</span></a>
+    <button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="write-for-us.html" class="btn btn-orange">Write for Us</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+<section class="page-head"><div class="wrap"><h1>Terms of Use</h1><p>Last updated: October 14, 2026</p></div></section>
+<section class="section"><div class="wrap doc">
+<p>By using www.yourdomain.com you agree to these terms. If you do not agree, please do not use the site.</p>
+<h2>Using the site</h2>
+<p>You may read and share our content for personal, non-commercial use. You may not copy our articles in bulk, scrape the site, or use it for anything unlawful.</p>
+<h2>Guest post submissions</h2>
+<ul><li>You confirm that your article is original, that you own it, and that it does not break anyone's rights.</li>
+<li>We may edit, reject, or remove any submission at our discretion.</li>
+<li>Sending an article does not guarantee publication.</li>
+<li>Once published, you allow us to display the article on our site. We may keep it online unless you ask us to remove it.</li>
+<li>Paid and sponsored posts are labeled as such, and their links use the sponsored attribute.</li></ul>
+<h2>Payments</h2>
+<p>Fees are shown on the Write for Us page. Payment is requested after your article is approved. Because work begins once an article is approved, fees are not refundable after publication.</p>
+<h2>Our content</h2>
+<p>All text, design, and branding on this site belong to SaaSPress unless stated otherwise.</p>
+<h2>External links</h2>
+<p>We link to other websites and are not responsible for their content or practices.</p>
+<h2>Limit of liability</h2>
+<p>The site and its content are provided "as is". To the extent allowed by law, we are not liable for any loss that results from using the site.</p>
+<h2>Changes and contact</h2>
+<p>We may update these terms at any time. Questions? Email <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a>.</p>
+</div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="index.html" class="logo">SaaS<span>Press</span></a>
+        <p style="margin-top:12px">SaaS reviews, tech guides, and business tips for people who build and run online businesses.</p>
+      </div>
+      <div><h4>Explore</h4><ul>
+        <li><a href="blog.html">Blog</a></li><li><a href="write-for-us.html">Write for Us</a></li>
+        <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li></ul></div>
+    </div>
+    <div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var t = document.getElementById('toggle'), m = document.getElementById('menu');
+t.addEventListener('click', function () {
+  var o = m.classList.toggle('open');
+  t.setAttribute('aria-expanded', o);
+});
+</script>
+</body>
+</html>

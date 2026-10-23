@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Management Tool Finder | SaaSPress</title>
+<meta name="description" content="Answer five quick questions and get project management tools that fit how your team works. No sign-up needed.">
+<link rel="canonical" href="https://www.yourdomain.com/tool-finder.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-head{background:var(--navy);color:#CBD5E1;padding:56px 0 44px}
+.page-head h1{color:#fff;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:.3em}
+.page-head p{margin:0;font-size:1.1rem}
+.quiz{max-width:720px}
+fieldset{border:0;padding:0;margin:0 0 30px}
+legend{font-family:Poppins,sans-serif;font-weight:600;font-size:1.15rem;color:var(--navy);margin-bottom:10px;padding:0}
+.opt{display:block;padding:12px 16px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:#fff}
+.opt:hover{border-color:var(--blue)}
+.opt input{margin-right:10px;accent-color:var(--blue)}
+.opt:has(input:checked){border-color:var(--blue);background:#EFF6FF}
+.err{color:#B91C1C;margin:10px 0 0;display:none}
+#results{margin-top:44px;max-width:760px}
+.res{border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:18px;background:#fff}
+.res.top{border:2px solid var(--blue)}
+.res h3{margin-bottom:4px;font-size:1.35rem}
+.badge{display:inline-block;background:var(--orange);color:#fff;font-size:.82rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.res p{margin:0 0 .7em}
+.res .why{color:var(--navy)}
+.res .warn{color:var(--muted);font-size:.95rem}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:.95rem;margin-top:24px}
+.menu a[aria-current="page"]{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">SaaS<span>Press</span></a>
+    <button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="tool-finder.html" aria-current="page">Tool Finder</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="write-for-us.html" class="btn btn-orange">Write for Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="page-head">
+  <div class="wrap">
+    <h1>Find your project management tool</h1>
+    <p>Five questions, about one minute. We match tools to what you need to do.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <form class="quiz" id="quiz" novalidate></form>
+    <p class="err" id="err" role="alert">Please answer all five questions.</p>
+    <div style="max-width:720px"><button type="button" class="btn btn-blue" id="go">Show my tools</button></div>
+
+    <div id="results" aria-live="polite"></div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="index.html" class="logo">SaaS<span>Press</span></a>
+        <p style="margin-top:12px">SaaS reviews, tech guides, and business tips for people who build and run online businesses.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tool-finder.html">Tool Finder</a></li>
+          <li><a href="write-for-us.html">Write for Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="tools-data.js"></script>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var t = document.getElementById('toggle'), m = document.getElementById('menu');
+t.addEventListener('click', function () {
+  var o = m.classList.toggle('open');
+  t.setAttribute('aria-expanded', o);
+});
+
+var QUESTIONS = [
+  {key:'team', text:'How big is your team?', opts:[['solo','Just me'],['small','2 to 10 people'],['large','11 to 50 people']]},
+  {key:'job', text:'What is the biggest job you need the tool to do?', opts:[
+    ['boards','See tasks on a simple visual board'],
+    ['timeline','Plan timelines and deadlines'],
+    ['time','Track time spent on work or clients'],
+    ['workload','See who is overloaded and balance the team'],
+    ['docs','Keep documents and tasks together']]},
+  {key:'setup', text:'How fast do you want to be up and running?', opts:[['fast','In about 10 minutes'],['ok','I can spend time learning it']]},
+  {key:'time', text:'Do you need to track time?', opts:[['yes','Yes'],['no','No']]},
+  {key:'apps', text:'Does it need to connect with apps like Slack, Google, or Microsoft?', opts:[['yes','Yes, important'],['no','Not really']]}
+];
+var WHY = {
+  boards:'it shows work on clear visual boards',
+  timeline:'it handles timelines and deadlines well',
+  time:'it supports tracking time',
+  workload:'it helps you see and balance team workload',
+  docs:'it keeps documents and tasks together'
+};
+
+var form = document.getElementById('quiz');
+QUESTIONS.forEach(function (q) {
+  var fs = document.createElement('fieldset');
+  var lg = document.createElement('legend'); lg.textContent = q.text; fs.appendChild(lg);
+  q.opts.forEach(function (o) {
+    var l = document.createElement('label'); l.className = 'opt';
+    var i = document.createElement('input'); i.type = 'radio'; i.name = q.key; i.value = o[0];
+    l.appendChild(i); l.appendChild(document.createTextNode(o[1])); fs.appendChild(l);
+  });
+  form.appendChild(fs);
+});
+
+function answers() {
+  var a = {}, ok = true;
+  QUESTIONS.forEach(function (q) {
+    var c = form.querySelector('input[name="' + q.key + '"]:checked');
+    if (c) a[q.key] = c.value; else ok = false;
+  });
+  return ok ? a : null;
+}
+
+function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+document.getElementById('go').addEventListener('click', function () {
+  var a = answers(), err = document.getElementById('err'), out = document.getElementById('results');
+  if (!a) { err.style.display = 'block'; return; }
+  err.style.display = 'none';
+
+  var ranked = TOOLS.map(function (tool) {
+    var s = tool.scores, score = 0;
+    score += 3 * s[a.job];
+    score += 2 * tool.team[a.team];
+    if (a.setup === 'fast') score += 2 * s.setup;
+    if (a.time === 'yes') score += 2 * s.time;
+    if (a.apps === 'yes') score += 1.5 * s.apps;
+    return {tool: tool, score: score};
+  }).sort(function (x, y) { return y.score - x.score; }).slice(0, 3);
+
+  var html = '<h2>Your best matches</h2>';
+  ranked.forEach(function (r, i) {
+    var tl = r.tool, reasons = [];
+    reasons.push(WHY[a.job].replace(/^it /, 'it ').replace(/^/, ''));
+    if (a.setup === 'fast' && tl.scores.setup >= 2) reasons.push('it is quick to get started');
+    if (a.time === 'yes' && tl.scores.time >= 2) reasons.push('it supports time tracking');
+    if (a.apps === 'yes' && tl.scores.apps >= 2) reasons.push('it connects with many other apps');
+    var why = 'Why it fits you: ' + reasons.join(', and ') + '.';
+    if (tl.scores[a.job] < 2) why = 'Why it appears: it suits your team size and setup needs, but it is not the strongest for your main job.';
+    html += '<div class="res' + (i === 0 ? ' top' : '') + '">' +
+      (i === 0 ? '<span class="badge">Best match</span>' : '') +
+      '<h3>' + esc(tl.name) + '</h3>' +
+      '<p>' + esc(tl.best_for) + '</p>' +
+      '<p class="why">' + esc(why) + '</p>' +
+      '<p class="warn"><b>Keep in mind:</b> ' + esc(tl.watch_out) + '</p>' +
+      '<a href="' + tl.url + '" target="_blank" rel="noopener">Visit ' + esc(tl.name) + ' official site</a></div>';
+  });
+  html += '<div class="note"><b>About these results:</b> this is a draft guide. We do not show prices because they change often. Check each tool\'s official site for current features, plans, and costs before you decide.</div>';
+  out.innerHTML = html;
+  out.scrollIntoView({behavior: 'smooth', block: 'start'});
+});
+</script>
+</body>
+</html>
