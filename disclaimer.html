@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Disclaimer | SaaSPress</title>
+<meta name="description" content="Important notes about the information, affiliate links, and guest content on SaaSPress.">
+<link rel="canonical" href="https://www.yourdomain.com/disclaimer.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-head{background:var(--navy);color:#CBD5E1;padding:56px 0 44px}
+.page-head h1{color:#fff;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:.3em}
+.page-head p{margin:0;font-size:1.1rem}
+.doc h2{font-size:1.4rem;margin-top:1.6em}
+.doc ul{padding-left:20px}
+.doc li{margin-bottom:6px}
+.doc{max-width:760px}
+form.submit{max-width:640px;display:grid;gap:16px}
+form.submit label{font-weight:600;color:var(--navy);display:block;margin-bottom:4px}
+form.submit input,form.submit textarea{width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:8px;font:inherit}
+.menu a[aria-current="page"]{color:var(--blue)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="logo">SaaS<span>Press</span></a>
+    <button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="write-for-us.html" class="btn btn-orange">Write for Us</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+<section class="page-head"><div class="wrap"><h1>Disclaimer</h1><p>Last updated: October 14, 2026</p></div></section>
+<section class="section"><div class="wrap doc">
+<h2>General information only</h2>
+<p>The content on SaaSPress is for general information. It is not legal, financial, tax, or other professional advice. Please consult a qualified professional before making important decisions.</p>
+<h2>Accuracy</h2>
+<p>We work hard to keep articles correct and current, but software features and prices change often. Check a provider's own website for the latest details before you buy.</p>
+<h2>Affiliate and sponsored content</h2>
+<p>Some links on this site may be affiliate links, which means we may earn a commission if you buy through them, at no extra cost to you. Sponsored posts are clearly labeled. This never changes how we score a product.</p>
+<h2>Guest posts</h2>
+<p>Guest articles are written by independent authors. Their opinions are their own and do not always reflect ours.</p>
+<h2>External links</h2>
+<p>We are not responsible for the content, products, or services of third-party websites we link to.</p>
+<h2>Contact</h2>
+<p>Questions? Email <a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a>.</p>
+</div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="index.html" class="logo">SaaS<span>Press</span></a>
+        <p style="margin-top:12px">SaaS reviews, tech guides, and business tips for people who build and run online businesses.</p>
+      </div>
+      <div><h4>Explore</h4><ul>
+        <li><a href="blog.html">Blog</a></li><li><a href="write-for-us.html">Write for Us</a></li>
+        <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li></ul></div>
+    </div>
+    <div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+var t = document.getElementById('toggle'), m = document.getElementById('menu');
+t.addEventListener('click', function () {
+  var o = m.classList.toggle('open');
+  t.setAttribute('aria-expanded', o);
+});
+</script>
+</body>
+</html>
