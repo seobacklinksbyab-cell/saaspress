@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /post-template.html
+Disallow: /post-template
 
-Sitemap: https://www.yourdomain.com/sitemap.xml
+Sitemap: https://withered-smoke-7a8e.seobacklinks-by-ab.workers.dev/sitemap.xml
