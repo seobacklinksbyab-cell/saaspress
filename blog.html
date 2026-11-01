@@ -32,6 +32,7 @@
 .empty{padding:40px 0;color:var(--muted);display:none}
 .menu a[aria-current="page"]{color:var(--blue)}
 @media(max-width:900px){.posts article{grid-template-columns:1fr;gap:6px}.search{width:100%}}
+.latest-section{padding-top:36px}.latest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.latest-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 6px 20px #14213b0b}.latest-thumb{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;background:linear-gradient(135deg,#e9effa,#d9e4fa);overflow:hidden;color:var(--navy);font-weight:600;text-align:center;padding:12px}.latest-thumb img{width:100%;height:100%;object-fit:cover}.latest-info{padding:16px}.latest-meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;text-transform:uppercase}.latest-info h2{font-size:1.24rem;line-height:1.3;margin:12px 0 7px}.latest-info h2 a{color:var(--navy)}.latest-info h2 a:hover{color:var(--blue);text-decoration:none}.latest-by{font-size:.86rem;color:var(--muted);margin:0 0 9px}.latest-info p:last-child{font-size:.94rem;line-height:1.65;margin:0}.latest-heading{margin-bottom:20px}.latest-heading h2{font-size:1.8rem;margin-bottom:4px}.latest-heading p{color:var(--muted);margin:0}@media(max-width:950px){.latest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.latest-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -58,6 +59,19 @@
   </div>
 </section>
 
+<section class="section latest-section">
+  <div class="wrap">
+    <div class="latest-heading"><h2>Latest Articles</h2><p>Fresh guides, reviews and comparisons from SaaSPress.</p></div>
+    <div class="latest-grid" id="latestArticles">
+      <!-- SAASPRESS_ARTICLES_START -->
+      <article class="latest-card"><a class="latest-thumb" href="free-project-management-tools-for-freelancers"><img src="free-project-management-plans-compared.svg" alt="Free project management plans compared" loading="lazy"></a><div class="latest-info"><div class="latest-meta"><span>October 24, 2026</span><span>Reading Time: 7 minutes</span></div><h2><a href="free-project-management-tools-for-freelancers">Free project management tools for freelancers: what each free plan really includes</a></h2><p class="latest-by">By SaaSPress · SaaS Tools</p><p>What the free plans of Trello, Asana, ClickUp, Notion and monday.com really include, and where each one runs out.</p></div></article>
+      <article class="latest-card"><a class="latest-thumb" href="best-free-ai-tools-for-freelancers"><span>AI Tools for Freelancers</span></a><div class="latest-info"><div class="latest-meta"><span>October 2026</span><span>Reading Time: 8 minutes</span></div><h2><a href="best-free-ai-tools-for-freelancers">Best Free AI Tools for Freelancers in 2026: 9 Tools Worth Trying</a></h2><p class="latest-by">By SaaSPress · AI Tools</p><p>Nine free AI tools for freelancers, checked against official pricing pages: what each free plan includes, its limits, and who each tool suits best.</p></div></article>
+      <article class="latest-card"><a class="latest-thumb" href="post-choose-project-management-tool"><span>SaaS Comparisons</span></a><div class="latest-info"><div class="latest-meta"><span>October 16, 2026</span><span>Reading Time: 6 minutes</span></div><h2><a href="post-choose-project-management-tool">How to choose a project management tool: 7 questions to ask first</a></h2><p class="latest-by">By SaaSPress · SaaS Comparisons</p><p>Not sure which project management software to pick? Answer seven questions about your team, work and free plan limits.</p></div></article>
+      <article class="latest-card"><a class="latest-thumb" href="how-to-check-ai-tool-free-plan-limits"><span>Free Software</span></a><div class="latest-info"><div class="latest-meta"><span>October 16, 2026</span><span>Reading Time: 7 minutes</span></div><h2><a href="how-to-check-ai-tool-free-plan-limits">How to Check an AI Tool’s Free Plan Limits Before You Rely on It</a></h2><p class="latest-by">By SaaSPress Editorial Team · Free Software</p><p>Use this practical checklist to verify any AI tool’s free plan from official sources before relying on it.</p></div></article>
+      <!-- SAASPRESS_ARTICLES_END -->
+    </div>
+  </div>
+</section>
 <section class="section">
   <div class="wrap">
     <div class="posts" id="posts">
@@ -126,3 +140,4 @@ t.addEventListener('click', function () {
 </script>
 </body>
 </html>
+
