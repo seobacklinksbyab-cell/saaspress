@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "withered-smoke-7a8e",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-02",
+  "ai": {
+    "binding": "AI"
+  },
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "run_worker_first": [
+      "/api/*",
+      "/admin",
+      "/admin/"
+    ]
+  }
+}
