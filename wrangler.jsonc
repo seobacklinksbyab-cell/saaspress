@@ -9,7 +9,7 @@
   "assets": {
     "directory": "./",
     "binding": "ASSETS",
-    "html_handling": "none",
+    "html_handling": "auto-trailing-slash",
     "run_worker_first": [
       "/api/*",
       "/admin",
