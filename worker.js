@@ -241,7 +241,7 @@ export default {
   async fetch(req, env) {
     const url = new URL(req.url);
     if (url.pathname === "/admin" || url.pathname === "/admin/") {
-      return env.ASSETS.fetch(new Request(new URL("/admin.html", url), req));
+      return env.ASSETS.fetch(new Request(new URL("/admin", url), req));
     }
     if (url.pathname.startsWith("/api/admin/")) return adminRoute(req, env, url);
     if (url.pathname !== "/api/ai") return env.ASSETS.fetch(req);
