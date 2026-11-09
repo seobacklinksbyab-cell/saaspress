@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#12203A;--blue:#2456E8;--sky:#E8EFFF;--paper:#FFFFFF;--mist:#F4F7FC;--mint:#0E9F6E;--line:#D9E1F0;--muted:#51607C}
+:root{--ink:#12203A;--deep:#0B1530;--blue:#2456E8;--sky:#E8EFFF;--paper:#FFFFFF;--mist:#F4F7FC;--mint:#0E9F6E;--orange:#F97316;--line:#D9E1F0;--muted:#51607C}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:18px}
@@ -23,37 +23,56 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;line-heig
 a{color:inherit}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-header{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:5}
+header{border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(8px);position:sticky;top:0;z-index:5}
 .bar{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{font-family:"Bricolage Grotesque",Arial,sans-serif;font-weight:800;font-size:1.4rem;text-decoration:none}
 .logo span{color:var(--blue)}
 nav{display:flex;gap:26px;align-items:center;font-size:1rem;font-weight:600}
 nav a{text-decoration:none}
 nav a:hover{color:var(--blue)}
-.btn{display:inline-block;background:var(--blue);color:#fff;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none;font-size:1rem}
-.btn:hover{background:#1A41BF}
-.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn{display:inline-block;background:var(--blue);color:#fff;padding:13px 26px;border-radius:10px;font-weight:600;text-decoration:none;font-size:1rem;box-shadow:0 6px 18px rgba(36,86,232,.28);transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{background:#1A41BF;transform:translateY(-2px);box-shadow:0 10px 24px rgba(36,86,232,.35)}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);box-shadow:none}
 .btn.alt:hover{background:var(--ink);color:#fff}
-.hero{background:var(--ink);color:#fff;padding:84px 0 76px}
+nav .btn{background:var(--orange);box-shadow:0 6px 16px rgba(249,115,22,.3);padding:10px 20px}
+nav .btn:hover{background:#EA580C}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--deep) 0%,var(--ink) 55%,#1B3A8A 100%);color:#fff;padding:92px 0 84px}
+.hero::before{content:"";position:absolute;right:-120px;top:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(79,124,255,.45),rgba(79,124,255,0) 68%)}
+.hero .wrap{position:relative}
+.eyebrow{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#DCE6FF;padding:6px 14px;border-radius:999px;font-size:.95rem;font-weight:600;margin-bottom:22px}
 .hero h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800;max-width:15ch}
 .hero p{max-width:56ch;margin:22px 0 30px;font-size:1.2rem;color:#C9D6F2}
 .ask{font-weight:600;margin-bottom:12px;color:#fff}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-.chips a{background:#1E3158;border:1px solid #38508A;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-size:1rem;transition:background .15s}
-.chips a:hover{background:var(--blue);border-color:var(--blue)}
+.chips a{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-size:1rem;transition:background .15s,transform .15s}
+.chips a:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
 .cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero .btn.alt{color:#fff;border-color:#fff}
+.hero .btn.alt{color:#fff;border-color:rgba(255,255,255,.7)}
 .hero .btn.alt:hover{background:#fff;color:var(--ink)}
-section{padding:76px 0}
+section{padding:80px 0}
 section.tint{background:var(--mist)}
 h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;margin-bottom:14px;max-width:22ch}
 .lead{max-width:62ch;color:var(--muted);margin-bottom:38px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:34px}
+.head h2{margin-bottom:0}
+.more{font-weight:600;color:var(--blue);text-decoration:none}
+.more:hover{text-decoration:underline}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;box-shadow:0 4px 14px rgba(18,32,58,.06);transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(18,32,58,.14);border-color:var(--blue)}
+.card img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;background:var(--ink)}
+.card .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .cat{color:var(--orange);font-weight:600;font-size:.9rem;text-transform:uppercase;letter-spacing:.04em}
+.card h3{font-size:1.35rem}
+.card p{color:var(--muted);font-size:1rem}
+.card .read{margin-top:auto;padding-top:10px;color:var(--blue);font-weight:600}
 .rows{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .15s}
 .row h3{font-size:1.5rem}
 .row p{color:var(--muted)}
 .row .go{font-weight:600;color:var(--blue)}
 .row:hover h3{color:var(--blue)}
+.row:hover{padding-left:10px}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .list{list-style:none}
 .list li{padding:14px 0;border-bottom:1px solid var(--line)}
@@ -62,22 +81,23 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;margin-bottom:14px;max-wid
 .tag{display:inline-block;background:var(--sky);color:var(--blue);font-weight:600;font-size:.9rem;padding:3px 10px;border-radius:6px;margin-bottom:12px}
 .free{background:#DFF5EC;color:#07704D}
 .pm{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
-.pm span{border:1px solid var(--line);background:var(--paper);padding:6px 14px;border-radius:6px;font-weight:600;font-size:1rem}
+.pm span{border:1px solid var(--line);background:var(--paper);padding:6px 14px;border-radius:8px;font-weight:600;font-size:1rem}
 .vs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.vs a{border:1px solid var(--line);background:var(--paper);padding:22px;border-radius:10px;text-decoration:none}
-.vs a:hover{border-color:var(--blue)}
+.vs a{border:1px solid var(--line);background:var(--paper);padding:24px;border-radius:14px;text-decoration:none;box-shadow:0 3px 10px rgba(18,32,58,.05);transition:transform .15s,box-shadow .15s,border-color .15s}
+.vs a:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 12px 26px rgba(18,32,58,.12)}
 .vs h3{font-size:1.2rem;margin-bottom:6px}
 .vs p{color:var(--muted);font-size:1rem}
-.write{background:var(--blue);color:#fff;text-align:center;padding:76px 0}
+.write{background:linear-gradient(135deg,var(--blue),#1A41BF);color:#fff;text-align:center;padding:80px 0}
 .write h2{margin:0 auto 14px;max-width:20ch}
 .write p{max-width:56ch;margin:0 auto 28px;color:#DCE6FF}
-.write .btn{background:#fff;color:var(--blue)}
+.write .btn{background:#fff;color:var(--blue);box-shadow:0 8px 22px rgba(0,0,0,.2)}
 .write .btn:hover{background:var(--ink);color:#fff}
-footer{background:var(--ink);color:#B7C5E4;padding:46px 0;font-size:1rem}
+footer{background:var(--deep);color:#B7C5E4;padding:46px 0;font-size:1rem}
 .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
 footer a{margin-right:20px;text-decoration:none}
 footer a:hover{color:#fff}
-@media(max-width:800px){nav a:not(.btn){display:none}.row{grid-template-columns:1fr}.split,.vs{grid-template-columns:1fr}.hero{padding:56px 0}section{padding:54px 0}}
+@media(max-width:1000px){.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){nav a:not(.btn){display:none}.row{grid-template-columns:1fr}.split,.vs,.cards{grid-template-columns:1fr}.hero{padding:56px 0}section{padding:54px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
@@ -99,6 +119,7 @@ footer a:hover{color:#fff}
 <main>
 <div class="hero">
 <div class="wrap">
+<span class="eyebrow">Reviews, comparisons and free plan breakdowns</span>
 <h1>Best AI Tools, picked by the job you need done</h1>
 <p>Don't scroll through endless lists. Tell us the work in front of you and we point you to the AI tools and SaaS software that fit it, with clear reviews and honest comparisons for businesses in the USA, UK, Canada and Australia.</p>
 <p class="ask">What do you need to get done?</p>
@@ -117,7 +138,45 @@ footer a:hover{color:#fff}
 </div>
 </div>
 
-<section id="categories">
+<section id="latest">
+<div class="wrap">
+<div class="head">
+<h2>Latest guides</h2>
+<a class="more" href="blog.html">View all guides &rarr;</a>
+</div>
+<div class="cards">
+<a class="card" href="is-calendly-free">
+<img src="card-calendly.png" alt="Is Calendly free? Guide to the Calendly free plan" width="1200" height="630">
+<div class="body">
+<span class="cat">SaaS Tools</span>
+<h3>Is Calendly free? What you get on the free plan (and what you don't)</h3>
+<p>What the free plan includes, its one big limit for freelancers, and when Standard is worth paying for.</p>
+<span class="read">Read the guide &rarr;</span>
+</div>
+</a>
+<a class="card" href="notion-free-plan-limits">
+<img src="card-notion.png" alt="Notion free plan limits guide" width="1200" height="630">
+<div class="body">
+<span class="cat">SaaS Tools</span>
+<h3>Notion free plan limits: what actually caps you</h3>
+<p>See which limits on the Notion free plan can slow you down before you decide to upgrade.</p>
+<span class="read">Read the guide &rarr;</span>
+</div>
+</a>
+<a class="card" href="free-project-management-tools-for-freelancers">
+<img src="card-project-management.png" alt="Free project management tools for freelancers" width="1200" height="630">
+<div class="body">
+<span class="cat">Project Management</span>
+<h3>Free project management tools for freelancers</h3>
+<p>What each free plan really includes, so you can pick a tool without paying first.</p>
+<span class="read">Read the guide &rarr;</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="tint" id="categories">
 <div class="wrap">
 <h2>AI tools for business, sorted by what they do</h2>
 <p class="lead">Every category covers one kind of work, so you compare tools that actually compete with each other.</p>
@@ -130,7 +189,7 @@ footer a:hover{color:#fff}
 </div>
 </section>
 
-<section class="tint" id="free">
+<section id="free">
 <div class="wrap split">
 <div>
 <span class="tag free">Free AI Tools</span>
@@ -146,7 +205,7 @@ footer a:hover{color:#fff}
 </div>
 </section>
 
-<section id="saas">
+<section class="tint" id="saas">
 <div class="wrap">
 <span class="tag">Best Software for Small Business</span>
 <h2>SaaS software that fits how your team works</h2>
@@ -154,11 +213,11 @@ footer a:hover{color:#fff}
 <div class="pm" aria-label="Project management tools we cover">
 <span>Trello</span><span>Asana</span><span>monday.com</span><span>ClickUp</span><span>Notion</span><span>Wrike</span><span>Basecamp</span><span>Zoho Projects</span>
 </div>
-<p style="margin-bottom:22px">New guide: <a href="free-project-management-tools-for-freelancers" style="color:var(--blue);font-weight:600">Free project management tools for freelancers: what each free plan really includes</a></p><a class="btn" href="blog.html">Read the SaaS reviews</a>
+<a class="btn" href="blog.html">Read the SaaS reviews</a>
 </div>
 </section>
 
-<section class="tint" id="compare">
+<section id="compare">
 <div class="wrap">
 <h2>Software comparison and SaaS alternatives</h2>
 <p class="lead">Stuck between two tools, or looking to leave one? Start here.</p>
