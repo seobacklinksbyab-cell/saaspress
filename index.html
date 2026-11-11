@@ -57,15 +57,16 @@ h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;margin-bottom:14px;max-wid
 .head h2{margin-bottom:0}
 .more{font-weight:600;color:var(--blue);text-decoration:none}
 .more:hover{text-decoration:underline}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;box-shadow:0 4px 14px rgba(18,32,58,.06);transition:transform .2s,box-shadow .2s,border-color .2s}
 .card:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(18,32,58,.14);border-color:var(--blue)}
 .card img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;background:var(--ink)}
-.card .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
-.card .cat{color:var(--orange);font-weight:600;font-size:.9rem;text-transform:uppercase;letter-spacing:.04em}
-.card h3{font-size:1.35rem}
-.card p{color:var(--muted);font-size:1rem}
-.card .read{margin-top:auto;padding-top:10px;color:var(--blue);font-weight:600}
+.card .ph{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1200/630;background:linear-gradient(135deg,var(--deep),#1B3A8A);color:#fff;font-family:"Bricolage Grotesque",Arial,sans-serif;font-weight:800;font-size:1.3rem;text-align:center;padding:12px}
+.card .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .cat{color:var(--orange);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+.card h3{font-size:1.15rem}
+.card p{color:var(--muted);font-size:.95rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .read{margin-top:auto;padding-top:10px;color:var(--blue);font-weight:600;font-size:.95rem}
 .rows{border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .15s}
 .row h3{font-size:1.5rem}
@@ -97,7 +98,8 @@ footer{background:var(--deep);color:#B7C5E4;padding:46px 0;font-size:1rem}
 footer a{margin-right:20px;text-decoration:none}
 footer a:hover{color:#fff}
 @media(max-width:1000px){.cards{grid-template-columns:1fr 1fr}}
-@media(max-width:800px){nav a:not(.btn){display:none}.row{grid-template-columns:1fr}.split,.vs,.cards{grid-template-columns:1fr}.hero{padding:56px 0}section{padding:54px 0}}
+@media(max-width:800px){nav a:not(.btn){display:none}.row{grid-template-columns:1fr}.split,.vs{grid-template-columns:1fr}.hero{padding:56px 0}section{padding:54px 0}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
@@ -145,33 +147,12 @@ footer a:hover{color:#fff}
 <a class="more" href="blog.html">View all guides &rarr;</a>
 </div>
 <div class="cards">
-<a class="card" href="is-calendly-free">
-<img src="card-calendly.png" alt="Is Calendly free? Guide to the Calendly free plan" width="1200" height="630">
-<div class="body">
-<span class="cat">SaaS Tools</span>
-<h3>Is Calendly free? What you get on the free plan (and what you don't)</h3>
-<p>What the free plan includes, its one big limit for freelancers, and when Standard is worth paying for.</p>
-<span class="read">Read the guide &rarr;</span>
-</div>
-</a>
-<a class="card" href="notion-free-plan-limits">
-<img src="card-notion.png" alt="Notion free plan limits guide" width="1200" height="630">
-<div class="body">
-<span class="cat">SaaS Tools</span>
-<h3>Notion free plan limits: what actually caps you</h3>
-<p>See which limits on the Notion free plan can slow you down before you decide to upgrade.</p>
-<span class="read">Read the guide &rarr;</span>
-</div>
-</a>
-<a class="card" href="free-project-management-tools-for-freelancers">
-<img src="card-project-management.png" alt="Free project management tools for freelancers" width="1200" height="630">
-<div class="body">
-<span class="cat">Project Management</span>
-<h3>Free project management tools for freelancers</h3>
-<p>What each free plan really includes, so you can pick a tool without paying first.</p>
-<span class="read">Read the guide &rarr;</span>
-</div>
-</a>
+<!-- SAASPRESS_HOME_START -->
+<a class="card" href="is-calendly-free"><img src="card-calendly.png" alt="Is Calendly free? Guide to the Calendly free plan" width="1200" height="630" loading="lazy"><div class="body"><span class="cat">SaaS Tools</span><h3>Is Calendly Free? What You Get on the Free Plan (and What You Don't)</h3><p>What the free plan includes, its one big limit for freelancers, and when Standard is worth paying for.</p><span class="read">Read the guide &rarr;</span></div></a>
+<a class="card" href="notion-free-plan-limits"><img src="card-notion.png" alt="Notion free plan limits guide" width="1200" height="630" loading="lazy"><div class="body"><span class="cat">SaaS Tools</span><h3>Notion Free Plan Limits: What Actually Caps You</h3><p>See which limits on the Notion free plan can slow you down before you decide to upgrade.</p><span class="read">Read the guide &rarr;</span></div></a>
+<a class="card" href="trello-free-plan-for-freelancers"><img src="card-trello.png" alt="Trello free plan for freelancers guide" width="1200" height="630" loading="lazy"><div class="body"><span class="cat">SaaS Tools</span><h3>Trello Free Plan for Freelancers: What You Really Get</h3><p>What the Trello free plan covers for solo workers, and where it starts to limit you.</p><span class="read">Read the guide &rarr;</span></div></a>
+<a class="card" href="free-project-management-tools-for-freelancers"><img src="card-project-management.png" alt="Free project management tools for freelancers" width="1200" height="630" loading="lazy"><div class="body"><span class="cat">Project Management</span><h3>Free Project Management Tools for Freelancers</h3><p>What each free plan really includes, so you can pick a tool without paying first.</p><span class="read">Read the guide &rarr;</span></div></a>
+<!-- SAASPRESS_HOME_END -->
 </div>
 </div>
 </section>
