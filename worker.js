@@ -6,6 +6,7 @@ const BRANCH = "main";
 const SITE = "https://saaspress.co.uk";
 const COOKIE = "__Host-saaspress-admin";
 const SESSION_SECONDS = 60 * 60 * 12;
+const HOME_CARDS_MAX = 4;
 const SYSTEM = {
   blog: "You are a writing assistant for SaaSPress, a website about SaaS software and AI tools. Write clear, natural English for readers in the USA, UK, Canada and Australia. Never invent statistics, quotes, personal experience, test results, prices or product features. If a fact is needed that you cannot know, write the placeholder [add verified fact]. Keep the answer under 350 words.",
   research: "You are a research planning assistant for SaaSPress, a website about SaaS software and AI tools. You cannot browse the web and your knowledge may be out of date. Never state prices, plan limits, user numbers or release dates as facts. Never invent URLs. Help the user plan their research: what to find out, which kinds of official pages to check (for example the tool's own pricing page, help center and terms), and common mistakes. End with a short section titled 'Verify before you publish'. Keep the answer under 350 words."
@@ -121,12 +122,19 @@ function cardHtml(a) {
   const image = a.imagePath ? '<img src="' + escapeHtml(a.imagePath) + '" alt="' + escapeHtml(a.imageAlt || a.title) + '" loading="lazy">' : '<span>' + escapeHtml(a.category) + '</span>';
   return '<article class="latest-card"><a class="latest-thumb" href="' + escapeHtml(a.slug) + '">' + image + '</a><div class="latest-info"><div class="latest-meta"><span>' + escapeHtml(a.dateLabel) + '</span><span>Reading Time: ' + a.readingMinutes + ' minutes</span></div><h2><a href="' + escapeHtml(a.slug) + '">' + escapeHtml(a.title) + '</a></h2><p class="latest-by">By ' + escapeHtml(a.byline) + ' · ' + escapeHtml(a.category) + '</p><p>' + escapeHtml(a.excerpt) + '</p></div></article>';
 }
+function homeCardHtml(a) {
+  const media = a.imagePath
+    ? '<img src="' + escapeHtml(a.imagePath) + '" alt="' + escapeHtml(a.imageAlt || a.title) + '" width="1200" height="630" loading="lazy">'
+    : '<div class="ph">' + escapeHtml(a.category) + '</div>';
+  return '<a class="card" href="' + escapeHtml(a.slug) + '">' + media + '<div class="body"><span class="cat">' + escapeHtml(a.category) + '</span><h3>' + escapeHtml(a.title) + '</h3><p>' + escapeHtml(a.excerpt) + '</p><span class="read">Read the guide &rarr;</span></div></a>';
+}
 function articleHtml(a) {
   const canonical = SITE + "/" + a.slug;
   const robots = a.indexing === "noindex" ? "noindex,follow" : "index,follow";
   const articleJson = JSON.stringify({ "@context": "https://schema.org", "@type": "Article", headline: a.title, datePublished: a.date, dateModified: a.date, author: { "@type": "Person", name: a.byline }, publisher: { "@type": "Organization", name: "SaaSPress" }, mainEntityOfPage: canonical }).replace(/</g, "\\u003c");
   const imageMeta = a.imagePath ? '<meta property="og:image" content="' + escapeHtml(SITE + "/" + a.imagePath) + '">' : "";
-  return '<!DOCTYPE html>\n<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n<title>' + escapeHtml(a.seoTitle) + '</title><meta name="description" content="' + escapeHtml(a.description) + '"><meta name="robots" content="' + robots + '"><link rel="canonical" href="' + canonical + '"><meta property="og:title" content="' + escapeHtml(a.seoTitle) + '"><meta property="og:description" content="' + escapeHtml(a.description) + '"><meta property="og:type" content="article">' + imageMeta + '\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script type="application/ld+json">' + articleJson + '</script><style>.post-head{padding:24px 0 28px;max-width:820px}.post-head h1{font-size:clamp(2rem,4.2vw,3rem);margin:10px 0 14px}.post-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem;color:var(--muted)}.post-body{max-width:820px;font-size:1.08rem;line-height:1.8;padding-bottom:70px}.post-body h2{font-size:1.65rem;margin:1.8em 0 .5em}.post-body img{max-width:100%;height:auto;border-radius:10px}.post-body blockquote{margin:1.4em 0;padding:4px 0 4px 20px;border-left:4px solid var(--blue);color:var(--navy)}.post-body a{overflow-wrap:anywhere}</style></head><body><header class="site-header"><div class="wrap nav"><a href="index.html" class="logo">SaaS<span>Press</span></a><button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button><ul class="menu" id="menu"><li><a href="index.html">Home</a></li><li><a href="blog.html" aria-current="page">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="write-for-us.html" class="btn btn-orange">Write for Us</a></li></ul></div></header><main class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / ' + escapeHtml(a.category) + '</nav><header class="post-head"><div class="tag">' + escapeHtml(a.category) + '</div><h1>' + escapeHtml(a.title) + '</h1><div class="post-meta"><span>By ' + escapeHtml(a.byline) + '</span><time datetime="' + a.date + '">' + a.dateLabel + '</time><span>Reading Time: ' + a.readingMinutes + ' minutes</span></div></header><article class="post-body">' + a.content + '<aside class="author"><div class="avatar">' + escapeHtml(a.byline.slice(0, 1).toUpperCase()) + '</div><div><h3>' + escapeHtml(a.byline) + '</h3><p>Published on SaaSPress.</p></div></aside></article></main><footer class="site-footer"><div class="wrap"><div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div></div></footer><script>document.getElementById("yr").textContent=new Date().getFullYear();var t=document.getElementById("toggle"),m=document.getElementById("menu");t.addEventListener("click",function(){var o=m.classList.toggle("open");t.setAttribute("aria-expanded",o)});</script></body></html>';
+  const coverHtml = a.imagePath ? '<img class="post-cover" src="' + escapeHtml(a.imagePath) + '" alt="' + escapeHtml(a.imageAlt || a.title) + '" width="1200" height="630">' : "";
+  return '<!DOCTYPE html>\n<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n<title>' + escapeHtml(a.seoTitle) + '</title><meta name="description" content="' + escapeHtml(a.description) + '"><meta name="robots" content="' + robots + '"><link rel="canonical" href="' + canonical + '"><meta property="og:title" content="' + escapeHtml(a.seoTitle) + '"><meta property="og:description" content="' + escapeHtml(a.description) + '"><meta property="og:type" content="article">' + imageMeta + '\n<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script type="application/ld+json">' + articleJson + '</script><style>.post-head{padding:24px 0 28px;max-width:820px}.post-head h1{font-size:clamp(2rem,4.2vw,3rem);margin:10px 0 14px}.post-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem;color:var(--muted)}.post-cover{display:block;width:100%;max-width:820px;height:auto;border-radius:12px;margin:0 0 28px}.post-body{max-width:820px;font-size:1.08rem;line-height:1.8;padding-bottom:70px}.post-body h2{font-size:1.65rem;margin:1.8em 0 .5em}.post-body img{max-width:100%;height:auto;border-radius:10px}.post-body blockquote{margin:1.4em 0;padding:4px 0 4px 20px;border-left:4px solid var(--blue);color:var(--navy)}.post-body a{overflow-wrap:anywhere}</style></head><body><header class="site-header"><div class="wrap nav"><a href="index.html" class="logo">SaaS<span>Press</span></a><button class="toggle" id="toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button><ul class="menu" id="menu"><li><a href="index.html">Home</a></li><li><a href="blog.html" aria-current="page">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="write-for-us.html" class="btn btn-orange">Write for Us</a></li></ul></div></header><main class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / ' + escapeHtml(a.category) + '</nav><header class="post-head"><div class="tag">' + escapeHtml(a.category) + '</div><h1>' + escapeHtml(a.title) + '</h1><div class="post-meta"><span>By ' + escapeHtml(a.byline) + '</span><time datetime="' + a.date + '">' + a.dateLabel + '</time><span>Reading Time: ' + a.readingMinutes + ' minutes</span></div></header>' + coverHtml + '<article class="post-body">' + a.content + '<aside class="author"><div class="avatar">' + escapeHtml(a.byline.slice(0, 1).toUpperCase()) + '</div><div><h3>' + escapeHtml(a.byline) + '</h3><p>Published on SaaSPress.</p></div></aside></article></main><footer class="site-footer"><div class="wrap"><div class="copy">&copy; <span id="yr">2026</span> SaaSPress. All rights reserved.</div></div></footer><script>document.getElementById("yr").textContent=new Date().getFullYear();var t=document.getElementById("toggle"),m=document.getElementById("menu");t.addEventListener("click",function(){var o=m.classList.toggle("open");t.setAttribute("aria-expanded",o)});</script></body></html>';
 }
 function utf8Base64(value) {
   const bytes = encoder.encode(value);
@@ -191,12 +199,31 @@ async function publishArticle(req, env) {
   if (!sitemap.includes("</urlset>")) throw new Error("invalid_sitemap");
   sitemap = sitemap.replace("</urlset>", sitemapEntry + "</urlset>");
 
+  // Homepage "Latest guides" cards: add the new article first, keep the newest few.
+  // If the homepage markers are missing, publishing still works and the homepage is left as it is.
+  let updatedHome = "";
+  try {
+    const home = await getTextFile(env, "index.html");
+    const homeStart = "<!-- SAASPRESS_HOME_START -->";
+    const homeEnd = "<!-- SAASPRESS_HOME_END -->";
+    const hs = home.indexOf(homeStart);
+    const he = home.indexOf(homeEnd);
+    if (hs >= 0 && he > hs) {
+      const existing = home.slice(hs + homeStart.length, he).split("\n").map((x) => x.trim()).filter((x) => x.indexOf('<a class="card"') === 0);
+      const cards = [homeCardHtml(a)].concat(existing).slice(0, HOME_CARDS_MAX);
+      updatedHome = home.slice(0, hs + homeStart.length) + "\n" + cards.join("\n") + "\n" + home.slice(he);
+    }
+  } catch (e) {
+    updatedHome = "";
+  }
+
   const ref = await gh(env, "/git/ref/heads/" + BRANCH);
   const parentSha = ref.object.sha;
   const parentCommit = await gh(env, "/git/commits/" + parentSha);
   tree.push({ path: pagePath, mode: "100644", type: "blob", content: articleHtml(a) });
   tree.push({ path: "blog.html", mode: "100644", type: "blob", content: updatedBlog });
   tree.push({ path: "sitemap.xml", mode: "100644", type: "blob", content: sitemap });
+  if (updatedHome) tree.push({ path: "index.html", mode: "100644", type: "blob", content: updatedHome });
   const newTree = await gh(env, "/git/trees", "POST", { base_tree: parentCommit.tree.sha, tree });
   const newCommit = await gh(env, "/git/commits", "POST", { message: "Publish article: " + title.slice(0, 65), tree: newTree.sha, parents: [parentSha] });
   await gh(env, "/git/refs/heads/" + BRANCH, "PATCH", { sha: newCommit.sha, force: false });
@@ -258,5 +285,3 @@ export default {
     } catch (e) { return json({ error: "ai_unavailable" }, 503); }
   }
 };
-
-
